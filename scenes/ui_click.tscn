@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dn3jgkokfoqan"]
+
+[ext_resource type="AudioStream" uid="uid://c1gyil2dff046" path="res://audio/ui_click.mp3" id="1_3b1dl"]
+[ext_resource type="Script" uid="uid://caeatyxeluvgm" path="res://scripts/sfx.gd" id="2_2okqn"]
+
+[node name="ui_click" type="AudioStreamPlayer2D" unique_id=698853208]
+stream = ExtResource("1_3b1dl")
+volume_db = 5.0
+panning_strength = 0.0
+script = ExtResource("2_2okqn")

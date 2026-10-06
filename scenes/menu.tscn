@@ -1,0 +1,98 @@
+[gd_scene format=3 uid="uid://bg761s6jy5uu6"]
+
+[ext_resource type="Script" uid="uid://cyh55vu6uyrlf" path="res://scripts/menu.gd" id="1_i6lef"]
+[ext_resource type="Texture2D" uid="uid://dxtg0aennpchx" path="res://images/camera/Camera.png" id="1_vjb58"]
+[ext_resource type="Texture2D" uid="uid://by65jn38y5q6l" path="res://images/other/bg.png" id="2_con2f"]
+[ext_resource type="FontFile" uid="uid://b2fki6iuruo3b" path="res://fonts/1St_Sortie.ttf" id="3_con2f"]
+[ext_resource type="Script" uid="uid://c6l7n4u38to5p" path="res://scripts/play_area.gd" id="4_mhnvy"]
+[ext_resource type="AudioStream" uid="uid://bfe1th3f8fed0" path="res://audio/Andromedas_Almanac_Menu_Theme.wav" id="5_4ytvr"]
+[ext_resource type="Script" uid="uid://dbem1ihrl4unb" path="res://scripts/ver.gd" id="6_g3eks"]
+[ext_resource type="FontFile" uid="uid://clw72ncte36jh" path="res://fonts/Wormbox_Rounded.ttf" id="7_v86rl"]
+[ext_resource type="AudioStream" uid="uid://xkxncsu4a8w" path="res://audio/ui_hover.mp3" id="8_i6lef"]
+[ext_resource type="Script" uid="uid://br3adw3j8d5a8" path="res://scripts/subtitles_toggle.gd" id="10_70i5f"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_s1fef"]
+font = ExtResource("3_con2f")
+font_size = 96
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s1fef"]
+size = Vector2(177, 70)
+
+[sub_resource type="LabelSettings" id="LabelSettings_khhxn"]
+font = ExtResource("3_con2f")
+
+[sub_resource type="LabelSettings" id="LabelSettings_qsuaf"]
+font = ExtResource("7_v86rl")
+font_size = 160
+
+[node name="Menu" type="Node2D" unique_id=904375756]
+script = ExtResource("1_i6lef")
+
+[node name="camera_layer" type="CanvasLayer" parent="." unique_id=1902347194]
+
+[node name="camera" type="Sprite2D" parent="camera_layer" unique_id=1361641001]
+texture_filter = 1
+scale = Vector2(24, 23.999998)
+texture = ExtResource("1_vjb58")
+centered = false
+
+[node name="bg" type="Sprite2D" parent="." unique_id=916033158]
+texture = ExtResource("2_con2f")
+centered = false
+
+[node name="play" type="Label" parent="." unique_id=139944666]
+unique_name_in_owner = true
+offset_left = 750.0
+offset_top = 388.0
+offset_right = 1170.0
+offset_bottom = 480.0
+text = "PLAY"
+label_settings = SubResource("LabelSettings_s1fef")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="play_area" type="Area2D" parent="play" unique_id=891506010]
+script = ExtResource("4_mhnvy")
+
+[node name="play_hitbox" type="CollisionShape2D" parent="play/play_area" unique_id=243434350]
+position = Vector2(205.5, 38)
+shape = SubResource("RectangleShape2D_s1fef")
+
+[node name="menu_music" type="AudioStreamPlayer2D" parent="." unique_id=230362849]
+stream = ExtResource("5_4ytvr")
+autoplay = true
+panning_strength = 0.0
+
+[node name="ver" type="Label" parent="." unique_id=2119542588]
+offset_left = 86.0
+offset_top = 984.0
+offset_right = 199.0
+offset_bottom = 1007.0
+text = "V 0.0.0 PRE-ALPHA"
+label_settings = SubResource("LabelSettings_khhxn")
+script = ExtResource("6_g3eks")
+
+[node name="title" type="Label" parent="." unique_id=2115649683]
+offset_left = 72.0
+offset_top = 107.0
+offset_right = 1848.0
+offset_bottom = 197.0
+text = "Andromeda's Almanac"
+label_settings = SubResource("LabelSettings_qsuaf")
+horizontal_alignment = 1
+
+[node name="ui_hover" type="AudioStreamPlayer2D" parent="." unique_id=1070893380]
+unique_name_in_owner = true
+stream = ExtResource("8_i6lef")
+volume_db = 7.5
+panning_strength = 0.0
+
+[node name="subtitles_toggle" type="CheckButton" parent="." unique_id=1845830299]
+offset_left = 1726.0
+offset_top = 977.0
+offset_right = 1842.0
+offset_bottom = 1008.0
+text = "Subtitles"
+script = ExtResource("10_70i5f")
+
+[connection signal="toggled" from="subtitles_toggle" to="subtitles_toggle" method="_on_toggled"]
