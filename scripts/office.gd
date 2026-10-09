@@ -13,17 +13,17 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	cam_state = %camera.cam_state
 	if position.x < 0 and !cam_state:
-			if get_viewport().get_mouse_position().x < 480:
-				position.x += 2
-			if get_viewport().get_mouse_position().x < 240:
-				position.x += 5
+		if get_global_mouse_position().x < 480:
+			position.x += 2
+		if get_global_mouse_position().x < 240:
+			position.x += 5
 	if position.x > -280 and !cam_state:
-		if get_viewport().get_mouse_position().x > 1440:
+		if get_global_mouse_position().x > 1440:
 			position.x -= 2
-		if get_viewport().get_mouse_position().x > 1680:
+		if get_global_mouse_position().x > 1680:
 			position.x -= 5
 	if position.x >= 0:
 		position.x = 0
-	elif position.x <= -320:
-		position.x = -320
-	pass
+	if position.x <= -280:
+		position.x = -280
+	print(position.x)

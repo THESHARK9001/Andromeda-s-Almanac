@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://6hem2h4sk6px"]
 
-[ext_resource type="Texture2D" uid="uid://dxlnlw5br75da" path="res://images/office/NEW_office.png" id="1_sj147"]
+[ext_resource type="Texture2D" uid="uid://hyow6hnjrkpe" path="res://images/office/old/Office.png" id="1_m8d2s"]
 [ext_resource type="Script" uid="uid://668fwnl81p82" path="res://scripts/office.gd" id="2_ggyll"]
 [ext_resource type="Texture2D" uid="uid://c17d0ciwj3s3u" path="res://images/office/buttons/L_Off.png" id="3_jcmwl"]
 [ext_resource type="Texture2D" uid="uid://bes5qenypwdnu" path="res://images/office/buttons/L_Light.png" id="4_g380n"]
@@ -44,9 +44,8 @@
 [ext_resource type="Texture2D" uid="uid://dxtg0aennpchx" path="res://images/camera/Camera.png" id="40_u056r"]
 [ext_resource type="Script" uid="uid://bwtrom2hysftm" path="res://scripts/camera.gd" id="41_ej25k"]
 [ext_resource type="Texture2D" uid="uid://by65jn38y5q6l" path="res://images/other/bg.png" id="41_h322m"]
-[ext_resource type="Texture2D" uid="uid://brkr0sdr7iwx2" path="res://images/office/darkness.png" id="41_m6mh1"]
-[ext_resource type="Texture2D" uid="uid://dc0jm21ts1bgk" path="res://images/office/light.png" id="42_wmpsf"]
 [ext_resource type="Script" uid="uid://bq2mkym255lpw" path="res://scripts/cam_hover.gd" id="43_8sq1a"]
+[ext_resource type="Script" uid="uid://chf5jm77anp5m" path="res://scenes/flashlight.gd" id="43_m8d2s"]
 [ext_resource type="Script" uid="uid://d2khic7mugkqy" path="res://scripts/hint_ui.gd" id="47_5o0d4"]
 [ext_resource type="Texture2D" uid="uid://be41ea6l2nxss" path="res://images/other/Hint_Box.png" id="48_kkj6x"]
 [ext_resource type="FontFile" uid="uid://b2fki6iuruo3b" path="res://fonts/1St_Sortie.ttf" id="49_vpbeg"]
@@ -132,7 +131,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [3.0]
+"values": [1.0]
 }
 
 [sub_resource type="Animation" id="Animation_h322m"]
@@ -148,7 +147,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.025, 0.05, 0.075, 0.1, 0.125, 0.15, 0.175, 0.2, 0.225, 0.25),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [3.0, 2.9, 2.8, 2.7, 2.6, 2.5, 2.6, 2.7, 2.8, 2.9, 3.0]
+"values": [1.0, 0.9, 0.8, 0.7, 0.6, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_o4nrh"]
@@ -180,6 +179,15 @@ font_size = 30
 font = ExtResource("49_vpbeg")
 font_size = 453
 
+[sub_resource type="Gradient" id="Gradient_317m6"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xkrm3"]
+gradient = SubResource("Gradient_317m6")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.8348214, 0.76339287)
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_753kg"]
 shader = ExtResource("21_turkq")
 shader_parameter/zoom = 0.1
@@ -195,7 +203,7 @@ size = Vector2(24, 24)
 [node name="office" type="Sprite2D" parent="." unique_id=1334981316]
 unique_name_in_owner = true
 texture_filter = 1
-texture = ExtResource("1_sj147")
+texture = ExtResource("1_m8d2s")
 centered = false
 script = ExtResource("2_ggyll")
 
@@ -327,19 +335,19 @@ panning_strength = 0.0
 
 [node name="plush" type="Sprite2D" parent="office" unique_id=1307884263]
 texture_filter = 1
-position = Vector2(836, 808)
-scale = Vector2(1, 3)
+position = Vector2(836, 936)
 texture = ExtResource("30_dd267")
 centered = false
-offset = Vector2(0, -39)
+offset = Vector2(0, -128)
+metadata/_edit_group_ = true
 
 [node name="plush_area" type="Area2D" parent="office/plush" unique_id=1536176477]
-position = Vector2(-811, -487.99994)
+position = Vector2(-811, -615.99994)
 scale = Vector2(3, 3)
 script = ExtResource("31_emblg")
 
 [node name="honk_hitbox" type="CollisionPolygon2D" parent="office/plush/plush_area" unique_id=246207470]
-position = Vector2(290, 168.66666)
+position = Vector2(290, 181.66666)
 polygon = PackedVector2Array(-0.6666565, -15.6666565, -3, -13, -6.6666565, -16.333344, -11, -18.333344, -15, -18.333344, -16.666656, -13.3333435, -16.666656, -9.3333435, -15.3333435, -4.6666565, -18.666656, -4.6666565, -19.666656, -3.6666565, -19.666656, -2, -17, 1, -18.333344, 2, -18.333344, 4, -18, 4.3333435, -15, 5.3333435, -15, 8, -12.3333435, 8, -10.3333435, 7, -9, 7.3333435, -9.6666565, 8.6666565, -10, 10, -10.3333435, 12, -11.3333435, 11.3333435, -12.3333435, 11.3333435, -12.6666565, 11, -17, 11, -17.260555, 11.3333435, -19, 11.3333435, -19.333344, 11.6666565, -19.333344, 13.3333435, -18.333344, 15.3333435, -17.666656, 18.333344, -16.333344, 20.333344, -13.6666565, 21.666656, -11.6666565, 21.666656, -9, 22.333344, -4, 23.666656, 0, 23.666656, 3.3333435, 21.333344, 10, 21.333344, 12.6666565, 19.333344, 12.6666565, 16.333344, 12, 15.3333435, 10, 14.3333435, 8.6666565, 14.3333435, 8.6666565, 5.6666565, 9.3333435, 5.6666565, 10, 5, 14, 5, 15, 4, 15.3333435, 3.3333435, 15.3333435, 1, 16, 1, 17.333344, -0.3333435, 17.333344, -1.3333435, 16.666656, -2.6666565, 16, -3.3333435, 17, -4, 17.333344, -4.6666565, 17.333344, -6.3333435, 16.666656, -7, 14, -7, 15, -9.3333435, 15.3333435, -14.6666565, 14.6666565, -19, 11.3333435, -19, 7, -17.333344, 4.3333435, -15.6666565, 2.3333435, -13.6666565, 1.3333435, -15.6666565)
 
 [node name="honk_sound" type="AudioStreamPlayer2D" parent="office/plush/plush_area" unique_id=919706932]
@@ -440,16 +448,21 @@ offset_bottom = 922.5945
 text = "Click here to close cameras"
 label_settings = SubResource("LabelSettings_wb4oo")
 
-[node name="darkness" type="Sprite2D" parent="office" unique_id=1790797084]
-texture = ExtResource("41_m6mh1")
-centered = false
-
-[node name="top_light" type="Sprite2D" parent="office/darkness" unique_id=748356403]
-texture = ExtResource("42_wmpsf")
-centered = false
-
 [node name="shader" type="CanvasLayer" parent="." unique_id=847632195]
 layer = 2
+
+[node name="dark" type="DirectionalLight2D" parent="shader" unique_id=680678108]
+visible = false
+texture_filter = 1
+blend_mode = 1
+
+[node name="flashlight" type="PointLight2D" parent="shader" unique_id=1281771390]
+texture_filter = 1
+texture_repeat = 1
+position = Vector2(-185.99998, -181)
+scale = Vector2(5.1523433, 5.1523433)
+texture = SubResource("GradientTexture2D_xkrm3")
+script = ExtResource("43_m8d2s")
 
 [node name="panorama" type="ColorRect" parent="shader" unique_id=1845535048]
 material = SubResource("ShaderMaterial_753kg")
@@ -475,6 +488,7 @@ script = ExtResource("36_emblg")
 
 [node name="camera_ui" type="CanvasLayer" parent="." unique_id=1712555241]
 layer = 3
+visible = false
 
 [node name="cams" type="Sprite2D" parent="camera_ui" unique_id=1848016482]
 unique_name_in_owner = true
@@ -507,6 +521,7 @@ panning_strength = 0.0
 
 [node name="subtitles" type="CanvasLayer" parent="." unique_id=404940549]
 layer = 999999
+visible = false
 script = ExtResource("52_m6mh1")
 
 [node name="subtitles_background" type="ColorRect" parent="subtitles" unique_id=1137578902]
