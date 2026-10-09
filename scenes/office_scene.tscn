@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://6hem2h4sk6px"]
 
-[ext_resource type="Texture2D" uid="uid://hyow6hnjrkpe" path="res://images/office/old/Office.png" id="1_m8d2s"]
+[ext_resource type="Texture2D" uid="uid://dxlnlw5br75da" path="res://images/office/NEW_office.png" id="1_wmpsf"]
 [ext_resource type="Script" uid="uid://668fwnl81p82" path="res://scripts/office.gd" id="2_ggyll"]
 [ext_resource type="Texture2D" uid="uid://c17d0ciwj3s3u" path="res://images/office/buttons/L_Off.png" id="3_jcmwl"]
 [ext_resource type="Texture2D" uid="uid://bes5qenypwdnu" path="res://images/office/buttons/L_Light.png" id="4_g380n"]
@@ -203,7 +203,7 @@ size = Vector2(24, 24)
 [node name="office" type="Sprite2D" parent="." unique_id=1334981316]
 unique_name_in_owner = true
 texture_filter = 1
-texture = ExtResource("1_m8d2s")
+texture = ExtResource("1_wmpsf")
 centered = false
 script = ExtResource("2_ggyll")
 
