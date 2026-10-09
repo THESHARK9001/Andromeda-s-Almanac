@@ -11,12 +11,13 @@ config_version=5
 [application]
 
 config/name="andromedas_almanac"
-config/version="0.1.1"
+config/version="0.2.0"
 run/main_scene="uid://bg761s6jy5uu6"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 boot_splash/stretch_mode=4
 boot_splash/use_filter=false
 boot_splash/image="uid://co2hrtjh8w0jw"
+config/icon="uid://by72pym2xxisf"
 boot_splash/minimum_display_time=1500
 
 [autoload]
@@ -29,7 +30,6 @@ DiscordRPCLoader="*uid://223dnwett5yl"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/size/mode=3
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 mouse_cursor/custom_image="uid://bt8p3gvvahb31"
